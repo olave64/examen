@@ -1,0 +1,38 @@
+<h1>Tabla de productos</h1>
+<app-agregar></app-agregar>
+<div class="row col-12">
+  <div class="row  col-4">
+
+
+
+  </div>
+
+
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Nombre</th>
+        <th scope="col">Cantidad</th>
+        <th scope="col">Tipo</th>
+        <th scope="col">Accion</th>
+      </tr>
+    </thead>
+    <tbody class="table-group-divider">
+      <tr  *ngFor="let index of productos; let i = index">
+        <th scope="row">{{index.ID}}</th>
+        <td>{{index.Nombre}}</td>
+        <td>{{index.Cantidad}}</td>
+        <td>{{index.Tipo}}</td>
+        <td>
+          <button class="btn btn-danger " type="button" (click)="eliminar()"><i class="fa-solid fa-trash-can"></i></button>
+          <button class="btn btn-primary" type="button" (click)="actualizar()"><i class="fa-solid fa-file-pen"></i></button>
+
+        </td>
+      </tr>
+
+    </tbody>
+  </table>
+
+</div>
+
