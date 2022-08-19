@@ -21,11 +21,11 @@
     <tbody class="table-group-divider">
       <tr  *ngFor="let index of productos; let i = index">
         <th scope="row">{{index.ID}}</th>
-        <td>{{index.Nombre}}</td>
+        <td id="id" >{{index.Nombre}}</td>
         <td>{{index.Cantidad}}</td>
         <td>{{index.Tipo}}</td>
         <td>
-          <button class="btn btn-danger " type="button" (click)="eliminar()"><i class="fa-solid fa-trash-can"></i></button>
+          <button class="btn btn-danger " type="button" (click)="eliminar(index.ID)"><i class="fa-solid fa-trash-can"></i></button>
           <button class="btn btn-primary" type="button" (click)="actualizar()"><i class="fa-solid fa-file-pen"></i></button>
 
         </td>

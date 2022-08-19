@@ -1,6 +1,6 @@
 import { Component, OnInit} from '@angular/core';
 import { ConsultasService } from 'src/app/services/consultas.service';
-import { map } from 'rxjs';
+
 
 @Component({
   selector: 'app-tabla',
@@ -22,12 +22,29 @@ export class TablaComponent implements OnInit {
     })
   }
 
+  eliminar(id:number){
+    if(id === null){
+      console.log('No se a ingresado un id')
+      return
+    }
+    const confirmacion = confirm();
+    if (!confirmacion) {
+       console.log('no confirmado')
+       return
+    }
+    this.consultas.deleteProducto(id).subscribe(resp =>{
+      console.log(resp);
+      window.location.reload();
+    })
 
-  eliminar(){
-    console.log('Eliminar producto');
+
+
+
   }
   actualizar(){
     console.log('Actualizar producto');
   }
+
+
 
 }
