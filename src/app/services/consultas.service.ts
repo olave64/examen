@@ -11,21 +11,23 @@ export class ConsultasService {
   constructor(private http:HttpClient) {
   }
 
-  //_______________OBTENER PRODUCTOS_______________
+  //-------------------Ruta del GET-------------------\\
   getProductos(){
     return this.http.get(this.url)
   }
-  //http://localhost:3000/api/productos3?nombreProducto=Auto&cantidadProducto=2&tipoProducto=Transporte
+
+  //--------------------Ruta del POST--------------------\\
   postProductos(nombre: String,cantidad:number,tipo:String,producto:Producto){
     return this.http.post(`${this.url}?nombreP=${nombre}&cantidadP=${cantidad}&tipoP=${tipo}`,producto)
   }
 
-//------------------------------ELIMINAR--------------------------
+//------------------------------Ruta del DELETE------------\\
   deleteProducto(id:Number){
 
-    return this.http.delete(`http://localhost:3000/api/productos?id=${id}`)
+    return this.http.delete(`${this.url}?id=${id}`)
   }
-//---------------------------ACTUALIZAR---------------------------------
+
+//---------------------------Rut del PUT---------------------\\
   putProducto(id:number,nombre:String,cantidad:number,tipo:String,producto: Producto){
     return this.http.put(`${this.url}?id=${id}&nombreP=${nombre}&cantidadP=${cantidad}&tipoP=${tipo}`,producto)
   }

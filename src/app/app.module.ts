@@ -6,14 +6,13 @@ import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { TablaComponent } from './view/tabla/tabla.component';
-import { AgregarComponent } from './view/agregar/agregar.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     TablaComponent,
-    AgregarComponent
+
   ],
   imports: [
     BrowserModule,
