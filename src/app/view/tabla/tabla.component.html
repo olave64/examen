@@ -1,4 +1,5 @@
 <h1>Tabla de productos</h1>
+
 <div class="col-12">
   <div class="col-12">
     <form>
@@ -7,19 +8,19 @@
       <label><strong>Cantidad</strong></label>
       <label><strong>Tipo</strong></label>
       <br>
-      <input type="text"  name="id" [(ngModel)]="producto.id" disabled>
-      <input type="text" name="nombre" [(ngModel)]="producto.nombre" placeholder="Nombre" minleng="1" >
-      <input type="number" name="cantidad" [(ngModel)]="producto.cantidad" placeholder="Cantidad" >
-      <input type="text" name="tipo" [(ngModel)]="producto.tipo" placeholder="Tipo" >
+      <input type="number"  name="id" [(ngModel)]="productos.id" disabled>
+      <input type="text" name="nombre" [(ngModel)]="productos.nombre" placeholder="Nombre" minleng="1">
+      <input type="number" name="cantidad" [(ngModel)]="productos.cantidad" placeholder="Cantidad" >
+      <input type="text" name="tipo" [(ngModel)]="productos.tipo" placeholder="Tipo" >
       <br>
-      <button class="btn btn-primary" type="button" (click)="agregar()">Crear Nuevo
+      <button class="btn btn-primary" type="submit" (click)="addData()">Crear Nuevo
         <i class="fa-solid fa-cart-plus"></i>
       </button>
 
-      <button type="button" class="btn btn-primary" (click)="actualizar()" aria-pressed="false" >Guardar
+      <button type="button" class="btn btn-primary" (click)="updateData()" aria-pressed="false" >Guardar
         <i class="fa-solid fa-far fa-save"></i>
       </button>
-      <button type="button" class="btn btn-primary" (click)="clear()" >Cancelar
+      <button type="button" class="btn btn-primary" (click)="clear()"     >Cancelar
         <i class="fa-solid fa-ban"></i>
       </button>
 
@@ -38,23 +39,26 @@
         <th scope="col">Accion</th>
       </tr>
     </thead>
+
+
     <tbody class="table-group-divider">
-      <tr  *ngFor="let index of productos; let i = index">
-        <th scope="row">{{index.ID}}</th>
-        <td id="id" >{{index.Nombre}}</td>
-        <td>{{index.Cantidad}}</td>
-        <td>{{index.Tipo}}</td>
+      <tr *ngFor="let items of items$ | async;">
+        <th scope="row">{{items.ID}}</th>
+        <td id="id" >{{items.Nombre}}</td>
+        <td>{{items.Cantidad}}</td>
+        <td>{{items.Tipo}}</td>
+
         <td>
           <button class="btn btn-danger "
               type="button"
-              (click)="eliminar(index.ID)"
-              title="Eliminar">
+              (click)="deleteData(items.ID)"
+              title="Eliminar">Eliminar
               <i class="fa-solid fa-trash-can"></i>
           </button>
 
           <button class="btn btn-primary" type="button"
-             (click)="pasarDatos(index.ID,index.Nombre,index.Cantidad,index.Tipo)"
-             title="actualizar">
+             (click)="pasarDatos(items.ID,items.Nombre,items.Cantidad,items.Tipo)"
+             title="actualizar">Actualizar
              <i class="fa-solid fa-file-pen"></i>
           </button>
 
@@ -66,4 +70,6 @@
 </form>
 
 </div>
+
+
 
