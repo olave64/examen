@@ -10,11 +10,6 @@ import { selectItem } from 'src/app/state/selectors/Items.selector';
 import { ItemModels } from 'src/app/interfaces/productos.interfaces';
 
 
-
-
-
-
-
 @Component({
   selector: 'app-tabla',
   templateUrl: './tabla.component.html',
@@ -64,7 +59,7 @@ export class TablaComponent implements OnInit {
         return
 
       }
-      if( this.productos.nombre =="" || this.productos.cantidad ==null || this.productos.tipo ==""){
+      if(this.productos.nombre =="" || this.productos.cantidad ==null || this.productos.tipo ==""){
         alert('Hay campos vacios');
         return
       }
@@ -90,6 +85,10 @@ export class TablaComponent implements OnInit {
     // ACTUALIZAR UN PRODUCTO
     updateData()
     {
+      if(this.productos.id == null || this.productos.nombre =="" || this.productos.cantidad ==null || this.productos.tipo ==""){
+        alert('Hay campos vacios');
+        return
+      }
       const items: ItemModels= {
         ID : 0,
         Nombre : "0",
