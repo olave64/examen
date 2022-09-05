@@ -20,6 +20,8 @@ export class InputsComponent {
   @Input() cantidadActualizar = 0
   @Input() tipoActualizar = ""
   // FIN RECIVIR DATOS DE TABLA COMPONENTS
+
+  //
   productos: Producto= {
     id: 0,
     nombre: "",
@@ -31,15 +33,16 @@ export class InputsComponent {
 
    // AGREGAR PRODUCTOS
   addData(){
-    if(this.productos.id > 0){
+    if(this.idActualizar > 0){
+
       console.log('se esperaban 3 argumentos y se enviaron cuatro')
       alert('No es necesario mandar el parametro id');
-      this.productos.id = 0
       this.clear()
       return
 
     }
-    if(this.idActualizar == null || this.nombreActualizar =="" || this.cantidadActualizar ==null || this.tipoActualizar ==""){
+
+    if(this.nombreActualizar =="" || this.cantidadActualizar < 0 || this.tipoActualizar ==""){
       alert('Hay campos vacios');
       return
     }
@@ -60,8 +63,8 @@ export class InputsComponent {
           items.Cantidad = res.Cantidad
           items.Tipo = res.Tipo
           this.store.dispatch(CreateProducto({item: items}))
-          this.clear()
         });
+        this.clear()
   }
    // FIN AGREGAR PRODUCTO
 
@@ -93,9 +96,9 @@ export class InputsComponent {
         items.Cantidad = data.Cantidad,
         items.Tipo = data.Tipo,
         this.store.dispatch(updateProducto({item: items}))
-        this.clear()
-      })
 
+      })
+    this.clear()
   }
   // FIN ACTUALIZAR PRODUCTO
 

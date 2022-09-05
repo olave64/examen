@@ -1,8 +1,8 @@
 
-export class Producto{
-  id: number = 0;
-  nombre: String = '';
-  cantidad : number = 0;
-  tipo: String = '' ;
+export interface Producto{
+  id: number ;
+  nombre: String ;
+  cantidad : number;
+  tipo: String;
 
 }

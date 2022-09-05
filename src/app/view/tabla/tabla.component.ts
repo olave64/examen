@@ -94,14 +94,7 @@ export class TablaComponent implements OnInit {
        })
     }
 
-  clear (){
-    this.productos.id = 0
-    this.productos.nombre = ""
-    this.productos.cantidad = 0
-    this.productos.tipo = ""
-
-  }
-
+ 
   //------------Agrega los volores a los inputs al tratar de actualizar-----\\
   pasarDatos(id:number, nombre: string, cantidad: number, tipo: string){
 
