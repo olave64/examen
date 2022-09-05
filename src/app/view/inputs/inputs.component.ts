@@ -91,6 +91,9 @@ export class InputsComponent {
       this.tipoActualizar,
       this.productos).subscribe((data)=>{
         console.log(data)
+        if(data.Id == undefined){
+          return
+        }
         items.Id = data.Id,
         items.Nombre = data.Nombre,
         items.Cantidad = data.Cantidad,
