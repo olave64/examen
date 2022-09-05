@@ -49,7 +49,6 @@ export class TablaComponent implements OnInit {
   ngOnInit(): void {
     //COGER DATOS DEL STORE
      this.loadData()
-    //USAR ACTIONS
 
     }
     //-------------------------------------------------------------\\
@@ -93,16 +92,5 @@ export class TablaComponent implements OnInit {
 
        })
     }
-
- 
-  //------------Agrega los volores a los inputs al tratar de actualizar-----\\
-  pasarDatos(id:number, nombre: string, cantidad: number, tipo: string){
-
-    this.id= id
-    this.nombre = nombre
-    this.cantidad = cantidad
-    this.tipo = tipo
-
- }
 
 }

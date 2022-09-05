@@ -39,9 +39,8 @@ export class InputsComponent {
       alert('No es necesario mandar el parametro id');
       this.clear()
       return
-
     }
-
+    
     if(this.nombreActualizar =="" || this.cantidadActualizar < 0 || this.tipoActualizar ==""){
       alert('Hay campos vacios');
       return
