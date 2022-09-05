@@ -1,29 +1,22 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Producto } from '../producto/producto';
-import { map, Observable, of } from 'rxjs';
+import { Observable } from 'rxjs';
 import { Post } from '../interfaces/post.interface';
-import { JsonPipe } from '@angular/common';
-
-
 
 @Injectable({
   providedIn: 'root'
 })
 export class ConsultasService {
 
-
-
-  private url = 'http://localhost:3000/api/productos'
-
-
+  private readonly url = 'http://localhost:3000/api/productos'
 
   constructor(private http:HttpClient) {
   }
 
   //-------------------Ruta del GET-------------------\\
-  getProductos(): Observable<any>{
-    const data = this.http.get(this.url)
+    getProductos(): Observable<any>{
+    const  data =  this.http.get<Post>(this.url)
     return data
   }
 
@@ -43,8 +36,8 @@ export class ConsultasService {
 
 //---------------------------Rut del PUT---------------------\\
   putProducto(id:number,nombre:String,cantidad:number,tipo:String,producto: Producto){
-   const respuesta = this.http.put<Post>(`${this.url}?id=${id}&nombreP=${nombre}&cantidadP=${cantidad}&tipoP=${tipo}`,producto)
-   return respuesta
-  }
+  const respuesta = this.http.put<Post>(`${this.url}?id=${id}&nombreP=${nombre}&cantidadP=${cantidad}&tipoP=${tipo}`,producto)
+  return respuesta
+ }
 
 }

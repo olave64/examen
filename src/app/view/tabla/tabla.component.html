@@ -1,32 +1,14 @@
 <h1>Tabla de productos</h1>
 
-<div class="col-12">
-  <div class="col-12">
-    <form>
-      <label><strong>ID</strong></label>
-      <label><strong>Nombre</strong></label>
-      <label><strong>Cantidad</strong></label>
-      <label><strong>Tipo</strong></label>
-      <br>
-      <input type="number"  name="id" [(ngModel)]="productos.id" disabled>
-      <input type="text" name="nombre" [(ngModel)]="productos.nombre" placeholder="Nombre" minleng="1">
-      <input type="number" name="cantidad" [(ngModel)]="productos.cantidad" placeholder="Cantidad" >
-      <input type="text" name="tipo" [(ngModel)]="productos.tipo" placeholder="Tipo" >
-      <br>
-      <button class="btn btn-primary" type="submit" (click)="addData()">Crear Nuevo
-        <i class="fa-solid fa-cart-plus"></i>
-      </button>
+<app-inputs
+[idActualizar]="id"
+[nombreActualizar]="nombre"
+[cantidadActualizar]="cantidad"
+[tipoActualizar]="tipo">
+</app-inputs>
 
-      <button type="button" class="btn btn-primary" (click)="updateData()" aria-pressed="false" >Guardar
-        <i class="fa-solid fa-far fa-save"></i>
-      </button>
-      <button type="button" class="btn btn-primary" (click)="clear()"     >Cancelar
-        <i class="fa-solid fa-ban"></i>
-      </button>
+<br>
 
-  </form>
-  </div>
-</div>
 <div class="row col-12">
   <form>
   <table class="table table-striped">
@@ -40,31 +22,28 @@
       </tr>
     </thead>
 
-
     <tbody class="table-group-divider">
       <tr *ngFor="let items of items$ | async;">
-        <th scope="row">{{items.ID}}</th>
-        <td id="id" >{{items.Nombre}}</td>
+        <th scope="row">{{items.Id}}</th>
+        <td>{{items.Nombre}}</td>
         <td>{{items.Cantidad}}</td>
         <td>{{items.Tipo}}</td>
 
         <td>
-          <button class="btn btn-danger "
+          <button class="btn btn-danger"
               type="button"
-              (click)="deleteData(items.ID)"
+              (click)="deleteData(items.Id)"
               title="Eliminar">Eliminar
               <i class="fa-solid fa-trash-can"></i>
           </button>
 
           <button class="btn btn-primary" type="button"
-             (click)="pasarDatos(items.ID,items.Nombre,items.Cantidad,items.Tipo)"
+             (click)="Enviar(items.Id,items.Nombre,items.Cantidad,items.Tipo)"
              title="actualizar">Actualizar
              <i class="fa-solid fa-file-pen"></i>
           </button>
-
         </td>
       </tr>
-
     </tbody>
   </table>
 </form>

@@ -23,8 +23,4 @@ export class itemsEffects{
   )
   );
 
-  //EFFECS PARA GUARDADO DE NUEVO PRODUCTO
-  
-
-
 }

@@ -1,0 +1,26 @@
+<div class="col-12">
+  <div class="col-12">
+    <form>
+      <label><strong>ID</strong></label>
+      <label><strong>Nombre</strong></label>
+      <label><strong>Cantidad</strong></label>
+      <label><strong>Tipo</strong></label>
+      <br>
+      <input type="number"  name="id" [(ngModel)]="idActualizar" value={{idActualizar}} disabled>
+      <input type="text" name="nombre" [(ngModel)]="nombreActualizar" value={{nombreActualizar}} placeholder="Nombre" minleng="1">
+      <input type="number" name="cantidad" [(ngModel)]="cantidadActualizar" value={{cantidadActualizar}} placeholder="Cantidad" >
+      <input type="text" name="tipo" [(ngModel)]="tipoActualizar" value={{tipoActualizar}}  placeholder="Tipo" >
+      <br>
+      <button class="btn btn-primary" type="submit" (click)="addData()">Crear Nuevo
+        <i class="fa-solid fa-cart-plus"></i>
+      </button>
+
+      <button type="button" class="btn btn-primary" (click)="updateData()" aria-pressed="false" >Guardar
+      <i class="fa-solid fa-far fa-save"></i>
+      </button>
+      <button type="button" class="btn btn-primary" (click)="clear()">Cancelar
+        <i class="fa-solid fa-ban"></i>
+      </button>
+  </form>
+  </div>
+</div>

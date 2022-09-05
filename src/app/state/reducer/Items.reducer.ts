@@ -1,4 +1,5 @@
 
+import { identifierName } from "@angular/compiler";
 import { createReducer, on } from "@ngrx/store";
 
 import { ItemModels } from 'src/app/interfaces/productos.interfaces';
@@ -20,13 +21,14 @@ export const itemsReducer = createReducer(
     return [...oldState, ...[item]]
   }),
   on(updateProducto,(oldState,{item})=>{
-    let newState = oldState.filter((_) => _.ID != item.ID);
+    let newState = oldState.filter((_) => _.Id != item.Id);
     newState.unshift( item);
     return newState;
   }),
   on(deleteProducto,(oldState,{item})=>{
-    const newState = oldState.filter((_) => _.ID != item.ID);
+    const newState = oldState.filter((_) => _.Id != item.Id);
     return newState;
-  })
+  }),
+
 );
 
